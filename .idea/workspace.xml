@@ -2,22 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="329690df-5b7b-4686-b7e2-9097bb285ee1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20210307.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/kakao/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/kakao/HttpUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/kakao/TokenManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled104.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/token" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kakao/Call.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kakao/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kakao/Elevator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kakao/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kakao/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kakao/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kakao/HttpUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kakao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kakao/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kakao/TokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kakao/TokenManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,6 +116,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,7 +131,11 @@
       <option name="presentableId" value="Default" />
       <updated>1632307645362</updated>
       <workItem from="1632307647051" duration="261000" />
-      <workItem from="1632307955275" duration="599000" />
+      <workItem from="1632307955275" duration="13292000" />
+      <workItem from="1632399772269" duration="9833000" />
+      <workItem from="1632441222776" duration="6626000" />
+      <workItem from="1632449497187" duration="271000" />
+      <workItem from="1632449829157" duration="110000" />
     </task>
     <servers />
   </component>
@@ -142,5 +156,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/kakao/Main.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="commands.get(0)" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

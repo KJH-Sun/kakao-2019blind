@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import org.json.JSONObject;
 
 public class TokenManager {
 
@@ -23,30 +24,6 @@ public class TokenManager {
         return this.token;
     }
 
-    public synchronized String createToken(int problemId) {
-        String response = HttpUtil.getInstance().start(problemId);
-        switch (response) {
-            case "400":
-                System.out.println("400:: problem_id 잘못됨");
-                break;
-            case "401":
-                System.out.println("401:: X-Auth-Token Header가 잘못됨");
-                break;
-            case "403":
-                System.out.println("403:: user_key가 잘못되었거나 10초 이내에 생성한 토큰이 존재");
-                token = loadTokenFile();
-                break;
-            case "500":
-                System.out.println("500:: 서버 에러, 문의 필요");
-                break;
-            default:
-                saveTokenFile(response/* token */);
-                token = response;
-                response = "200";
-                break;
-        }
-        return response;
-    }
 
     private void saveTokenFile(String token) {
         try {
@@ -69,5 +46,30 @@ public class TokenManager {
             e.printStackTrace();
         }
         return token;
+    }
+
+    public void createToken(String user_key, int problemId, int number_of_elevators) {
+        String response = HttpUtil.getInstance()
+            .start(user_key, problemId, number_of_elevators);
+        switch (response) {
+            case "400":
+                System.out.println("400:: problem_id 잘못됨");
+                break;
+            case "401":
+                System.out.println("401:: X-Auth-Token Header가 잘못됨");
+                break;
+            case "403":
+                System.out.println("403:: user_key가 잘못되었거나 10초 이내에 생성한 토큰이 존재");
+                token = loadTokenFile();
+                break;
+            case "500":
+                System.out.println("500:: 서버 에러, 문의 필요");
+                break;
+            default:
+                saveTokenFile(response/* token */);
+                token = response;
+                response = "200";
+                break;
+        }
     }
 }

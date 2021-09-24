@@ -1,5 +1,7 @@
 package com.kakao;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -38,10 +40,8 @@ public class HttpUtil {
             // type의 경우 POST, GET, PUT, DELETE 가능
             conn.setRequestMethod(type);
             conn.setRequestProperty("Content-Type", "application/json");
-            if (init) {
-                conn.setRequestProperty("X-Auth-Token", Constants.X_AUTH_TOKEN);
-            } else {
-                conn.setRequestProperty("Authorization", TokenManager.getInstance().getToken());
+            if (!init) {
+                conn.setRequestProperty("X-Auth-Token", TokenManager.getInstance().getToken());
             }
             conn.setDoOutput(true);
 
@@ -73,9 +73,9 @@ public class HttpUtil {
 
                 responseJson = new JSONObject(sb.toString());
                 // 응답 데이터
-//                Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//                String jsonOutput = gson.toJson(responseJson);
-//                System.out.println("response :: " + jsonOutput);
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                String jsonOutput = gson.toJson(responseJson);
+                System.out.println("response :: " + jsonOutput);
             } else {
                 System.out.println("responseCode : " + responseCode);
                 Map<String, String> failRequest = new HashMap<>();
@@ -92,13 +92,14 @@ public class HttpUtil {
     }
 
 
-    public String start(int problemId) {
-        JsonObject params = new JsonObject();
-        params.addProperty("problem", problemId);
-        JSONObject response = callApi(Constants.POST_START, params, "POST", true);
-        if (!response.has("auth_key")) {
-            return String.valueOf(response.getInt("responseCode"));
+    public String start(String user_key, int problemId, int number_of_elevators) {
+        String URL =
+            Constants.POST_START + "/" + user_key + "/" + problemId + "/" + number_of_elevators;
+        JSONObject response = callApi(URL, new JsonObject(), "POST", true);
+        if (response.has("responseCode")) {
+            return response.getString("responseCode");
+        } else {
+            return response.getString("token");
         }
-        return response.getString("auth_key");
     }
 }
